@@ -1,7 +1,8 @@
 import { notFound } from 'next/navigation'
 
-export default function VideoDetailPage({ params }: { params: { id: string } }) {
-  if (!params.id) notFound()
+export default async function VideoDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  if (!id) notFound()
   return (
     <main className="min-h-screen">
       <div className="aspect-video bg-black flex items-center justify-center">
@@ -11,7 +12,7 @@ export default function VideoDetailPage({ params }: { params: { id: string } }) 
         </div>
       </div>
       <div className="px-6 py-8">
-        <h1 className="text-2xl font-bold mb-2">视频标题 #{params.id}</h1>
+        <h1 className="text-2xl font-bold mb-2">视频标题 #{id}</h1>
         <p className="text-gray-400 mb-6">创作者: creator_01 · 播放量 12.5k</p>
         <div className="border border-white/10 rounded-lg p-4 mb-6">
           <h3 className="font-semibold mb-2">解锁选项</h3>
