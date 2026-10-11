@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+
+html, body { background: #0a0a0f; }
+
+.app { padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom); }
